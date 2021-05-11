@@ -1,0 +1,11 @@
+<ul class="coffee__list">
+  {{#each items}}
+  <li>
+    <header class="coffee__name">{{name}}</header>
+    <img src="{{image}}" alt="{{name}}">
+    <a href="/buy/{{name}}" class="link action">
+      В корзину ({{price}} ₽)
+    </a>
+  </li>
+  {{/each}}
+</ul>

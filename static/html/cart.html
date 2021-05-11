@@ -1,0 +1,44 @@
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>Overpriced Coffee</title>
+    <link rel="stylesheet" href="/static/css/index.css" />
+    <script type="module" src="/static/js/theme.mjs"></script>
+  </head>
+  <body class="layout">
+    <header class="layout__header">
+      <nav class="navigation">
+        <ul>
+          <li><a class="link" href="/menu">Меню</a></li>
+          <li><a class="link" href="/cart">Корзина</a></li>
+          <li><a class="link" href="/login">Личный кабинет</a></li>
+        </ul>
+      </nav>
+      <label class="theme__switch">
+        <input type="checkbox" />
+        <span class="theme__toggle"></span>
+      </label>
+    </header>
+    <main>
+      <section class="cart__total">
+        <div>Итого к оплате: 999999 ₽</div>
+        <form class="form" method="post">
+          <input class="action" type="submit" value="оплатить" />
+        </form>
+      </section>
+      <ul class="coffee__list">
+        <li>
+          <header class="coffee__name">Americano</header>
+          <img src="/static/img/americano.jpg" alt="Americano" />
+          <footer>999 ₽</footer>
+        </li>
+        <li>
+          <header class="coffee__name">Cappuccino</header>
+          <img src="/static/img/cappuccino.jpg" alt="Cappuccino" />
+          <footer>999 ₽</footer>
+        </li>
+      </ul>
+    </main>
+    <footer class="layout__footer">Overpriced Coffee&trade;</footer>
+  </body>
+</html>
