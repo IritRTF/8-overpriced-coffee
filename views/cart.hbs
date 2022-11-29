@@ -1,0 +1,17 @@
+<div>
+	<section class="cart__total">
+		<div>Итого к оплате: {{sum}} рублей</div>
+		<form class="action" method="post">
+			<input class="action" type="submit" value="Оформить заказ">
+		</form>
+	</section>
+	<ul class="coffee__list">
+		{{#each cartKorz}}
+			<li>
+				<header class="coffee__name">{{name}}</header>
+				<img src="{{image}}" alt="{{name}}">
+				<footer>{{price}} рублей</footer>
+			</li>
+		{{/each}}
+	</ul>
+</div>
