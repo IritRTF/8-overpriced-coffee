@@ -98,7 +98,6 @@ app.post("/cart", (req, res) => {
   if (history[username] === undefined) history[username] = [];
   if (cartKorz[username].length > 0) {
     history[username].push({
-      number: history[username].length + 1,
       items: cartKorz[username],
       totalPrice: cartKorz[username].reduce((sum, item) => sum + item.price, 0),
     });
