@@ -44,20 +44,22 @@ app.get("/orders", (req, res) => {
     console.log(orders[username])
     res.render("orders", {
         layout: "default",
-        order: orders[username]
+        order: orders[username],
+        title: "История заказов"
     })
 });
 
 app.get("/", (_, res) => {
-  res.redirect("/menu");
-  res.sendFile(path.join(rootDir, "/static/html/index.html"));
+    res.redirect("/menu");
+    res.sendFile(path.join(rootDir, "/static/html/index.html"));
 });
 
 app.get("/menu", (_, res) => {
-  res.render("menu", {
-    layout: "default",
-    items: drinks,
-  });
+    res.render("menu", {
+        layout: "default",
+        items: drinks,
+        title: "Меню"
+    });
 });
 
 app.get("/buy/:name", (req, res) => {
@@ -80,6 +82,7 @@ app.get("/cart", (req, res) => {
         layout: "default",
         drinks: usersDrinks[username],
         sum: usersDrinks[username].reduce((sum, item) => sum + item.price, 0),
+        title: "Корзина"
     })
 });
 
@@ -104,6 +107,7 @@ app.get("/login", (req, res) => {
     res.render("login", {
             layout: "default",
             username: username,
+            title: "Личный кабинет"
         }
     )
 });
