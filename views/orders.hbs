@@ -1,0 +1,11 @@
+{{#each order}}
+    <ul class="coffee__list">
+        {{#each items}}
+            <li>
+                <header class="drink__name">{{name}}</header>
+                <img src="{{image}}" alt="{{name}}">
+                <footer>{{price}} рублей</footer>
+            </li>
+        {{/each}}
+    </ul>
+{{/each}}
