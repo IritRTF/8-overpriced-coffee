@@ -36,9 +36,9 @@ body {
 .layout {
   display: grid;
   grid-template-areas:
-    "h"
-    "m"
-    "f";
+    'h'
+    'm'
+    'f';
   grid-template-rows: 3rem 1fr 2rem;
   grid-template-columns: 1fr;
   background-color: var(--bg-main);
@@ -119,13 +119,13 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  content: "🌚";
+  content: '🌚';
   display: block;
   font-size: 2rem;
   line-height: 2rem;
 }
 .theme__switch input:checked + .theme__toggle::after {
-  content: "🌝";
+  content: '🌝';
 }
 .theme__switch input:focus + .theme__toggle::after {
   outline: var(--text-accent) auto 5px;

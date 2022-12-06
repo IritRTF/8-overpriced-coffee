@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "cookie-parser": "^1.4.4",
+    "djlint": "^1.19.7",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "nodemon": "^2.0.6"
@@ -27,5 +28,10 @@
   "devDependencies": {
     "better-npm-run": "0.1.1",
     "prettier": "^2.2.0"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true
   }
 }
