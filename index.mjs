@@ -73,10 +73,19 @@ app.post("/cart", (_, res) => {
   res.redirect('/cart');
 });
 
+function get_user_orders(){
+  let orders = [];
+  for (var i = 0; i < history.length; i++){
+    if (currentUser === history[i].name)
+      orders.push(history[i])
+  }
+  return orders;
+}
+
 app.get("/history", (req, res) => {
   res.render("history", {
     layout: "default",
-    history : history,
+    history : get_user_orders(),
     title: 'История заказов'
   });
 });
