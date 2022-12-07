@@ -1,0 +1,12 @@
+{{#each order}}
+    <div>Заказ на сумму: {{price_sum cooffee}} ₽</div>
+	<ul class="coffee__list">
+		{{#each cooffee}}
+			<li>
+				<header class="coffee__name">{{name}}</header>
+				<img src="{{image}}">
+				<footer>{{price}} рублей</footer>
+			</li>
+		{{/each}}
+	</ul>
+{{/each}}
