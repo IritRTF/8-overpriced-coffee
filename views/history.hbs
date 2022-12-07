@@ -1,0 +1,13 @@
+
+{{#each history}}
+    <h1>Покупатель: {{user}}</h1>
+    <ul class="coffee__list">
+        {{#each allDrinks}}
+            <li>
+                <header class="drink__name">{{name}}</header>
+                <img src="{{image}}" alt="{{name}}">
+                <footer>{{price}} рублей</footer>
+            </li>
+        {{/each}}
+    </ul>
+{{/each}}
