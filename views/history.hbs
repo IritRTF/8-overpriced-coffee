@@ -1,0 +1,15 @@
+{{#each history}}
+    <section сlass="cart__total"> 
+    <p>{{name}}</p> 
+    <p>Оплачено: {{get_sum items}}</p>
+    </section>
+    <ul class="coffee__list">
+    {{#each items}}
+        <li>
+            <header class="coffee__name">{{name}}</header>
+            <img src="{{image}}" alt="{{name}}">
+        ({{price}} ₽)
+        </li>
+    {{/each}}
+    </ul>
+{{/each}}
