@@ -35,7 +35,6 @@ class User {
 }
 
 let users = [];
-let costCart = 0;
 let historyCart = [];
 
 let menu = [ 
@@ -79,15 +78,12 @@ app.get("/menu", (_, res) => {
 app.get("/buy/:name", (req, res) => {
   let currentUser = req.cookies.userName;
   console.log(currentUser);
-  // console.log(users);
   if(currentUser === undefined || currentUser === 'Аноним'){
     res.redirect('/login');
   }
   else {
     for(let i = 0; i < menu.length; i++){
       if(req.params.name == menu[i].name) {
-        // if(users[currentUser].length) users[currentUser][0] = 0;
-        // users[currentUser][0] += menu[i].price
         users[currentUser].push(menu[i]);
       }
     }
@@ -98,6 +94,12 @@ app.get("/buy/:name", (req, res) => {
 
 app.get("/cart", (req, res) => {
   let currentUser = req.cookies.userName;
+  let costCart = 0;
+
+  for(let i = 0; i < users[currentUser].length; i++){
+    costCart += users[currentUser][i].price;
+  }
+
   res.render("cart", {
     layout: "default",
     title: 'Cart',
@@ -107,8 +109,19 @@ app.get("/cart", (req, res) => {
 });
 
 app.post("/cart", (req, res) => {
-  cart = [];
-  costCart = 0;
+  let currentUser = req.cookies.userName;
+  let costCart = 0;
+
+  for(let i = 0; i < users[currentUser].length; i++){
+    costCart += users[currentUser][i].price;
+  }
+
+  historyCart[currentUser].push({
+    cart: users[currentUser],
+    cost: costCart,
+  });
+
+  users[currentUser] = [];
   res.redirect('/cart');
 });
 
@@ -128,18 +141,18 @@ app.get("/login", (req, res) => {
 
 app.get("/history", (req, res) => {
   let currentUser = req.cookies.userName;
-
   res.render("history", {
     layout: "default",
     history: historyCart[currentUser],
-    title: 'История заказов'
+    title: 'История заказов',
   });
 
 });
 
 function checkAuthorization(userName) {
   if(users[userName] === undefined){
-    users[userName]=[];
+    users[userName]= [];
+    historyCart[userName] = [];
   }
 }
 app.listen(port, () => console.log(`App listening on port ${port}`));
