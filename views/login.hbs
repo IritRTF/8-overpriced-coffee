@@ -1,0 +1,26 @@
+<main>
+    Ваше имя: {{param}}
+    <section class="user__hello">Привет, {{param}}!</section>
+    <form class="form" method="get">
+        <label class="label" for="username">
+            Зовите меня
+            <input id="username" name="username" type="text"/> !
+        </label>
+        <input class="action" type="submit" value="Сохранить"/>
+    </form>
+
+    <div>
+        История:
+    </div>
+    {{#each history}}
+        Заказ:
+        <ul>
+            {{#each drinks}}
+                <li>
+                    <header class="coffee__name">{{name}}</header>
+                    <footer>{{price}} ₽</footer>
+                </li>
+            {{/each}}
+        </ul>
+    {{/each}}
+</main>
