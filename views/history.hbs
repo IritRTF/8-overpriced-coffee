@@ -1,0 +1,19 @@
+<section class="cart__total">
+  <div>История заказов</div>
+</section>
+<ul class="history_list">
+  {{#each history_list}}
+    <li>
+      <p>{{time}}</p>
+      <ul class="coffee__list">
+        {{#each body}}
+          <li>
+            <header class="coffee__name">{{name}}</header>
+            <img src="{{image}}" alt="{{name}}">
+            <footer>{{price}}</footer>
+          </li>
+        {{/each}}
+      </ul>
+    </li>
+  {{/each}}
+</ul>
