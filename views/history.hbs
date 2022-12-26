@@ -1,0 +1,15 @@
+<ul>
+{{#each carts}}
+<li>
+    <ul class="coffee__list">
+        <h2>{{getTotalCount this}}</h2>
+    {{#each this}}
+    <li>
+        <header class="coffee__name">{{name}}</header>
+        <img src="{{image}}" alt="{{name}}">
+    </li>
+    {{/each}}
+    </ul>
+</li>
+{{/each}}
+</ul>
