@@ -2,6 +2,7 @@ import express from "express";
 import * as path from "path";
 import hbs from "express-handlebars";
 import cookieParser from "cookie-parser";
+import { createDiffieHellmanGroup } from "crypto";
 
 const rootDir = process.cwd();
 const port = 3000;
@@ -43,22 +44,7 @@ app.get("/menu", (_, res) => {
     });
 });
 
-// app.route('/buy/:name')
-//     .get((req, res) => {
-//         inBasket.push(req.params);
-//         console.log(inBasket)
-//         res.redirect("/menu")
-//         // res.send('Get a random book')
-//     })
-//     .post((req, res) => {
-//         console.log(2)
-//         // console.log(res.items);
-//         // console.log(req.items);
-//         // res.send('Add a book')
-//     })
-//     .put((req, res) => {
-//         res.send('Update the book')
-//     })
+
 app.get("/buy/:name", (req, res) => {
     for (var i = 0; i < allCoffee.length; i++) {
         if (allCoffee[i].name === req.params.name) {
@@ -81,18 +67,25 @@ app.get("/cart", (req, res) => {
     })
 });
 
+
 app.post("/cart", (req,res) => {
-    console.log("checkout")
     inBasket = [];
     res.redirect("/menu")
 });
 
-app.post("/cart", (req, res) => {
-    res.status(501).end();
-});
-
 app.get("/login", (req, res) => {
-    res.status(501).end();
-});
+    res.render("login", {
+        layout: "default"
+    })
+    //res.cookies(req.query.username)
+    console.log(req.query.username)
+    res.cookie('username', req.query.username, )
+    console.log(req)
+})
+
+app.post("/login", (req, res) => {
+    console.log(req)
+})
+
 
 app.listen(port, () => console.log(`App listening on port ${port}`));
