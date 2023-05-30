@@ -1,0 +1,15 @@
+<section class="cart__total">
+    Всего по счету: {{total}}
+</section>
+<form class="form" method="post">
+    <input class="action" type="submit" value="Оплатить" />
+</form>
+<ul class="coffee__list">
+    {{#each items}}
+        <li>
+            <header class="coffee__name">{{name}}</header>
+            <img src="{{image}}" alt="{{name}}">
+            Цена: {{price}}руб.
+        </li>
+    {{/each}}
+</ul>
